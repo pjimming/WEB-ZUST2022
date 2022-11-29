@@ -1,10 +1,24 @@
 <template>
-  <h1>HelloWorld</h1>
+  <NavBar />
+  <router-view/>
 </template>
+
+<script>
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap/dist/js/bootstrap'
+import NavBar from './components/NavBar.vue'
+
+export default {
+  name: "App",
+  components: {
+    NavBar,
+  }
+}
+</script>
 
 <style>
 body {
-  background-image: url("@/assets/background5.gif");
+  background-image: url('./assets/background.jpg');
   background-size: cover;
 }
 </style>

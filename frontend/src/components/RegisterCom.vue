@@ -4,6 +4,10 @@
     <p class="text-center">属于每个ZUSTer的和山论坛</p>
     <hr>
     <div class="mb-3">
+        <label for="exampleInputEmail1" class="form-label">学号：</label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    </div>
+    <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">用户名：</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>

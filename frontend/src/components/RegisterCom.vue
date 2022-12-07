@@ -19,7 +19,7 @@
         <label for="exampleInputPassword1" class="form-label">确认密码：</label>
         <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
-    <a href="/login">已有账号，点击登录！</a>
+    <a href="/user/account/login/">已有账号，点击登录！</a>
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
     <button class="btn btn-primary" type="button">注册</button>
     </div>

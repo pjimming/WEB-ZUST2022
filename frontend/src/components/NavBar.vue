@@ -18,7 +18,7 @@
                         <router-link class="nav-link" :to="{name: 'userinfo'}">个人主页</router-link>
                     </li>
                     <li><hr class="dropdown-divider"></li>
-                    <li><router-link class="dropdown-item" :to="{name: 'login'}">退出</router-link></li>
+                    <li><router-link class="dropdown-item" :to="{name: 'user_account_login'}">退出</router-link></li>
                 </ul>
             </li>
         </ul>

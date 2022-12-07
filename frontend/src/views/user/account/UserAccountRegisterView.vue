@@ -1,15 +1,16 @@
 <template>
-    <ContentField>
-        注册
-    </ContentField>
+    <ContentBase>
+    <RegisterCom></RegisterCom>
+    </ContentBase>
 </template>
 
 <script>
-import ContentField from '../../../components/ContentField.vue'
-
+import ContentBase from '@/components/ContentBase.vue';
+import RegisterCom from '@/components/RegisterCom.vue';
 export default {
     components: {
-        ContentField
+        ContentBase,
+        RegisterCom
     }
 }
 </script>

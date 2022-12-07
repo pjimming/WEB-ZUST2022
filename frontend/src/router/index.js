@@ -20,11 +20,6 @@ const routes = [
     name: 'article',
     component: ArticleView
   },
-  // {
-  //   path: '/user/account/login',
-  //   name: 'login',
-  //   component: LoginView
-  // },
   {
     path: "/user/account/login/",
     name: "user_account_login",
@@ -35,11 +30,6 @@ const routes = [
     name: 'post',
     component: PostView
   },
-  // {
-  //   path: '/user/account/register',
-  //   name: 'register',
-  //   component: RegisterView
-  // },
   {
     path: "/user/account/register/",
     name: "user_account_register",

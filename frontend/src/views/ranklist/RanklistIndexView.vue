@@ -51,21 +51,20 @@ export default {
         // })
 
         $.ajax({
-            url: "http://127.0.0.1:3000/user/bot/getlist/",
-            type: "GET",
-            data: {
-                id: 1,
-            },
-            headers: {
-                Authorization: "Bearer " + store.state.user.token,
-            },
-            success(resp) {
-                console.log(resp);
-            },
-            error(resp) {
-                console.log(resp);
-            }
-        })
+            url: "http://127.0.0.1:3000/user/bot/update/",
+                type: "POST",
+                data: {
+                    id: 2,
+                    title: "666",
+                    content: "你好牛奥",
+                },
+                headers: {
+                    Authorization: "Bearer " + store.state.user.token,
+                },
+                success(resp) {
+                    console.log(resp);
+                }
+            })
     }
 }
 </script>

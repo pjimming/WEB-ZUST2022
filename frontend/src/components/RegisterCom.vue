@@ -4,10 +4,6 @@
     <p class="text-center">属于每个ZUSTer的和山论坛</p>
     <hr>
     <div class="mb-3">
-        <label for="exampleInputEmail1" class="form-label">学号：</label>
-        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-    </div>
-    <div class="mb-3">
         <label for="exampleInputEmail1" class="form-label">用户名：</label>
         <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
     </div>
@@ -20,8 +16,12 @@
         <input type="password" class="form-control" id="exampleInputPassword1">
     </div>
     <a href="/user/account/login/">已有账号，点击登录！</a>
+    <div></div>
+    <!-- <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <button class="btn btn-primary" type="submit">注册</button>
+    </div> -->
     <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-    <button class="btn btn-primary" type="button">注册</button>
+        <button class="btn btn-primary" type="submit">注册</button>
     </div>
     </form>
 </template>
@@ -33,4 +33,8 @@ export default {
 </script>
 
 
-<style scoped></style>
+<style scoped>
+button {
+    width: 100%;
+}
+</style>

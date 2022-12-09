@@ -1,44 +1,69 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import HomeView from '../views/HomeView.vue';
 import ArticleView from '../views/ArticleView.vue';
-// import LoginView from '../views/LoginView.vue';
 import PostView from '../views/PostView.vue';
-// import RegisterView from '../views/RegisterView.vue';
 import UserAccountLoginView from '../views/user/account/UserAccountLoginView'
 import UserAccountRegisterView from '../views/user/account/UserAccountRegisterView'
-
 import UserInfoView from '../views/UserInfoView.vue';
+import store from '../store/index';
+import RanklistIndexView from '../views/ranklist/RanklistIndexView';
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: HomeView
+    component: HomeView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: '/article',
     name: 'article',
-    component: ArticleView
+    component: ArticleView,
+    meta: {
+      requestAuth: true,
+    }
+  },
+  {
+    path: "/ranklist/",
+    name: "ranklist_index",
+    component: RanklistIndexView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: "/user/account/login/",
     name: "user_account_login",
     component: UserAccountLoginView,
+    meta: {
+      requestAuth: false,
+    }
   },
   {
     path: '/post',
     name: 'post',
-    component: PostView
+    component: PostView,
+    meta: {
+      requestAuth: true,
+    }
   },
   {
     path: "/user/account/register/",
     name: "user_account_register",
     component: UserAccountRegisterView,
+    meta: {
+      requestAuth: false,
+    }
   },
   {
     path: '/userinfo',
     name: 'userinfo',
-    component: UserInfoView
+    component: UserInfoView,
+    meta: {
+      requestAuth: true,
+    }
   },
 ]
 
@@ -47,4 +72,11 @@ const router = createRouter({
   routes
 })
 
+router.beforeEach((to, from, next) => {
+  if (to.meta.requestAuth && !store.state.user.is_login) {
+    next({name: "user_account_login"});
+  } else {
+    next();
+  }
+})
 export default router

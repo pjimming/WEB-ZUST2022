@@ -7,6 +7,7 @@ import UserAccountRegisterView from '../views/user/account/UserAccountRegisterVi
 import UserInfoView from '../views/UserInfoView.vue';
 import store from '../store/index';
 import RanklistIndexView from '../views/ranklist/RanklistIndexView';
+import UserBotIndexView from '../views/user/bot/UserBotIndexView';
 
 const routes = [
   {
@@ -42,9 +43,17 @@ const routes = [
     }
   },
   {
-    path: '/post',
+    path: '/post/',
     name: 'post',
     component: PostView,
+    meta: {
+      requestAuth: true,
+    }
+  },
+  {
+    path: "/user/bot/",
+    name: "user_bot_index",
+    component: UserBotIndexView,
     meta: {
       requestAuth: true,
     }
@@ -58,7 +67,7 @@ const routes = [
     }
   },
   {
-    path: '/userinfo',
+    path: '/userinfo/',
     name: 'userinfo',
     component: UserInfoView,
     meta: {
@@ -79,4 +88,5 @@ router.beforeEach((to, from, next) => {
     next();
   }
 })
+
 export default router

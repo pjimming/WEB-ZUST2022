@@ -7,7 +7,7 @@
           <div class="card article-card">
             <div class="card-header">
                 {{ bot.username }}
-                <button type="button" class="btn btn-success float-end">删除</button>
+                <button type="button" class="btn btn-success float-end" @click="remove_bot(bot)">删除</button>
             </div>
             <div class="card-body">
                 <blockquote class="blockquote mb-0">
@@ -51,9 +51,29 @@ export default {
         })
     }
 
+    const remove_bot = (bot) => {
+        $.ajax({
+            url: "http://127.0.0.1:3000/user/bot/remove/",
+            type: "post",
+            data: {
+                id: bot.id,
+            },
+            headers: {
+                Authorization: "Bearer " + store.state.user.token,
+            },
+            success(resp) {
+                if (resp.error_message === "success") {
+                    refresh_bots();
+                }
+            }
+        })
+    }
+
+
     refresh_bots();
     return {
       bots,
+      remove_bot,
     }
   }
   }

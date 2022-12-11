@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-12">
           <p>发布过的动态</p>
-          <div v-for="bot in bots" :key="bot.id">
+          <div v-for="bot in bots.reverse()" :key="bot.id">
           <div class="card article-card">
             <div class="card-header">
                 {{ bot.username }}
@@ -68,7 +68,6 @@ export default {
             }
         })
     }
-
 
     refresh_bots();
     return {

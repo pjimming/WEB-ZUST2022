@@ -2,57 +2,56 @@
   <ContentBase>
     <div class="text-center">欢迎 PJM 同学</div>
     <br>
-    <TextArea></TextArea>
+    <div class="input-group mb-3">
+      <input v-model="botadd.content" type="text" class="form-control" placeholder="今天你过得怎么样…" aria-label="Recipient's username" aria-describedby="button-addon2">
+      <button class="btn btn-outline-secondary" type="button" id="button-addon2" @click="add_bot">发布</button>
+    </div>
     <hr>
-    <ArticleArea :posts="posts" />
   </ContentBase>
 </template>
 
 <script>
 // @ is an alias to /src
 import ContentBase from '../components/ContentBase'
-import TextArea from '../components/TextArea.vue';
-import ArticleArea from '@/components/ArticleArea.vue';
 import { reactive } from 'vue';
+import { useStore } from 'vuex'
+import $ from 'jquery'
 
 export default {
   name: "HomeView",
   components: {
     ContentBase,
-    TextArea,
-    ArticleArea,
   },
 
   setup() {
-    const posts = reactive({
-      count: 3,
-      posts: [
-        {
-          id: 1,
-          Userid: 1200696021,
-          name: "PJM",
-          content: "今天过得很开心",
-          time: "13点37分"
-        },
-        {
-          id: 2,
-          Userid: 1200696021,
-          name: "PJM",
-          content: "今天下雪了",
-          time: "13点38分"
-        },
-        {
-          id: 1,
-          Userid: 1200696021,
-          name: "PJM",
-          content: "今天做核酸了",
-          time: "13点39分"
-        },
-      ]
+    const store = useStore();
+    const botadd = reactive({
+        content: "",
+        error_message: "",
     });
-
+    const add_bot = () => {
+        botadd.error_message = "";
+        $.ajax({
+            url: "http://127.0.0.1:3000/user/bot/add/",
+            type: "post",
+            data: {
+                content: botadd.content,
+            },
+            headers: {
+                Authorization: "Bearer " + store.state.user.token,
+            },
+            success(resp) {
+                if (resp.error_message === "success") {
+                    botadd.content = "";                    
+                } else {
+                    botadd.error_message = resp.error_message;
+                }
+            }
+        })
+    }
     return {
-      posts,
+      add_bot,
+      botadd,
     }
   },
 

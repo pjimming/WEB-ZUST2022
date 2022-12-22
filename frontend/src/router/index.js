@@ -6,7 +6,6 @@ import UserAccountLoginView from '../views/user/account/UserAccountLoginView'
 import UserAccountRegisterView from '../views/user/account/UserAccountRegisterView'
 import UserInfoView from '../views/UserInfoView.vue';
 import store from '../store/index';
-import RanklistIndexView from '../views/ranklist/RanklistIndexView';
 import UserBotIndexView from '../views/user/bot/UserBotIndexView';
 
 const routes = [
@@ -22,14 +21,6 @@ const routes = [
     path: '/article',
     name: 'article',
     component: ArticleView,
-    meta: {
-      requestAuth: true,
-    }
-  },
-  {
-    path: "/ranklist/",
-    name: "ranklist_index",
-    component: RanklistIndexView,
     meta: {
       requestAuth: true,
     }
